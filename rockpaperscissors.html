@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  </head>
+  <body>
+    <script>
+      function getRandomInt(max) {
+        max = Math.floor(max);
+        return Math.floor(Math.random() * max);
+      }
+
+      function computerPlay() {
+        var num = getRandomInt(3);
+        if (num == 0) {
+          return "Paper"
+        } else if (num == 1) {
+          return "Scissors"
+        } else if (num == 2) {
+          return "Rock"
+        }
+      }
+
+      var playerScore = 0;
+      var computerScore = 0;
+
+      function game() {
+        while (playerScore + computerScore < 5) {
+
+          function play() {
+            let playerSelection = prompt("Enter your selection.").toLowerCase();
+            let computerSelection = 'scissors';
+            if (playerSelection == computerSelection) {
+              return "That's " + playerSelection + " vs " + computerSelection + ". It's a draw! " +  "The score is still " + playerScore + " vs " + computerScore + ".";
+            } else if (playerSelection == 'rock' && computerSelection == 'scissors') {
+              return "That's " + playerSelection + " vs " + computerSelection + ". \nYou win this round! " +  "The score is now " + ++playerScore + " vs " + computerScore + ".";
+            } else if (playerSelection == 'paper' && computerSelection == 'rock') {
+              return "That's " + playerSelection + " vs " + computerSelection + ". \nYou win this round! " +  "The score is now " + ++playerScore + " vs " + computerScore + ".";
+            } else if (playerSelection == 'scissors' && computerSelection == 'paper') {
+              return "That's " + playerSelection + " vs " + computerSelection + ". \nYou win this round! " +  "The score is now " + ++playerScore + " vs " + computerScore + ".";
+            } else {
+              return "That's " + playerSelection + " vs " + computerSelection + ". \nYou lose this round! The score is now " + playerScore + " vs " + ++computerScore;
+            }
+          }
+
+          play()
+
+          console.log("playerscore " + playerScore)
+        }
+      }
+
+    </script>
+  </body>
+</html>
