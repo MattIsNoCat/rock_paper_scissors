@@ -28,23 +28,33 @@
 
           function play() {
             let playerSelection = prompt("Enter your selection.").toLowerCase();
-            let computerSelection = 'scissors';
+            let computerSelection = computerPlay(3).toLowerCase();
             if (playerSelection == computerSelection) {
-              return "That's " + playerSelection + " vs " + computerSelection + ". It's a draw! " +  "The score is still " + playerScore + " vs " + computerScore + ".";
+              console.log("That's " + playerSelection + " vs " + computerSelection + ". It's a draw! " +  "The score is still " + playerScore + " vs " + computerScore + ".");
+              return
             } else if (playerSelection == 'rock' && computerSelection == 'scissors') {
-              return "That's " + playerSelection + " vs " + computerSelection + ". \nYou win this round! " +  "The score is now " + ++playerScore + " vs " + computerScore + ".";
+              console.log("That's " + playerSelection + " vs " + computerSelection + ". \nYou win this round! " +  "The score is now " + ++playerScore + " vs " + computerScore + ".");
+              return
             } else if (playerSelection == 'paper' && computerSelection == 'rock') {
-              return "That's " + playerSelection + " vs " + computerSelection + ". \nYou win this round! " +  "The score is now " + ++playerScore + " vs " + computerScore + ".";
+              console.log("That's " + playerSelection + " vs " + computerSelection + ". \nYou win this round! " +  "The score is now " + ++playerScore + " vs " + computerScore + ".");
+              return
             } else if (playerSelection == 'scissors' && computerSelection == 'paper') {
-              return "That's " + playerSelection + " vs " + computerSelection + ". \nYou win this round! " +  "The score is now " + ++playerScore + " vs " + computerScore + ".";
+              console.log("That's " + playerSelection + " vs " + computerSelection + ". You win this round! " +  "The score is now " + ++playerScore + " vs " + computerScore + ".");
+              return
             } else {
-              return "That's " + playerSelection + " vs " + computerSelection + ". \nYou lose this round! The score is now " + playerScore + " vs " + ++computerScore;
+              console.log("That's " + playerSelection + " vs " + computerSelection + ". You lose this round! " +  "The score is now " + playerScore + " vs " + ++computerScore + ".");
+              return
             }
           }
 
           play()
 
-          console.log("playerscore " + playerScore)
+          console.log("playerscore " + playerScore + " computerscore " + computerScore)
+        }
+        if (playerScore > computerScore) {
+          return "You win! Congratulations!"
+        } else if (computerScore > playerScore) {
+          return "You lose. Sorry buddy."
         }
       }
 
